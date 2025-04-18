@@ -9,12 +9,15 @@ body{
     font-family: 'limelight', sans-serif;
     background-color: #f2e5d0;
     color: #4e3220;
+    overflow-x: hidden;
 }
 
 nav{
-    height: 3rem;
+    height: 4rem;
     width: 100%;
+    
     background-color: #e6cba2;
+    font-size: 16pt;
 
     display: flex;
     align-items: center;
@@ -99,34 +102,58 @@ input, select{
     width: 16rem;
 }
 
-.kitaplarDiv{
+.kitaplarDiv {
     display: flex;
     flex-wrap: wrap;
-
-    padding: 2rem;
-    padding-right: 6rem;
-    padding-left: 6rem;
+    gap: 2rem;
+    padding: 2rem 6rem;
 }
 
-.kitapDiv{
-    height: 24rem;
-    width: 30%;
+.kitapDiv1{
+    height: calc(28rem + 40px);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
 
+.kitapDiv2 {
+    height: 28rem;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
-    background-color: aqua;
+    background-color: #e6cba2;
+    border-left: 1.5rem #4e3220 solid;
+    border-radius: 10px 10px 10px 0;
+    box-shadow: inset 200px 0px 28px -175px rgba(78, 50, 32, 0.40),
+            0px 0px 20px 5px rgba(78, 50, 32, 0.40);
 
-    margin-right: 2rem;
-    margin-bottom: 2rem;
 }
+
+@media (min-width: 768px) {.kitapDiv1 {width: calc((100% - 2rem) / 2);}}
+@media (min-width: 1024px) {.kitapDiv1 {width: calc((100% - 2rem * 2) / 3);}}
+@media (min-width: 1366px) {.kitapDiv1 {width: calc((100% - 2rem * 3) / 4);}}
 
 .kitapImg{
     height: auto;
-    width: 10rem;
+    width: 11rem;
     aspect-ratio: 2 / 3;
+}
+
+.kitapText{
+    font-size: 20pt;
+    margin-bottom: 8px;
+}
+
+.yayinText{
+    font-size: 12pt;
+    margin: 8px 0px;
+}
+
+.fiyatSepet{
+    font-size: 20pt;
 }
 
 main{

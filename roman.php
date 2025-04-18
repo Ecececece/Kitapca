@@ -14,24 +14,58 @@
     <title>Kitapça</title>
 </head>
 <body>
-<main>
+    <?php include 'navbar.php'; ?>
+
+    <main>
         <div class="kitaplarDiv">
             <?php
+                function getMixColor($imagePath) {
+                    if (!file_exists($imagePath)) return "#ccc"; // fallback
+                    $image = @imagecreatefromjpeg($imagePath) ?: @imagecreatefrompng($imagePath);
+                    if (!$image) return "#ccc";
+
+                    $width = imagesx($image);
+                    $height = imagesy($image);
+
+                    $rTotal = $gTotal = $bTotal = $total = 0;
+
+                    for ($x = 0; $x < $width; $x += 10) {
+                        for ($y = 0; $y < $height; $y += 10) {
+                            $rgb = imagecolorat($image, $x, $y);
+                            $rTotal += ($rgb >> 16) & 0xFF;
+                            $gTotal += ($rgb >> 8) & 0xFF;
+                            $bTotal += $rgb & 0xFF;
+                            $total++;
+                        }
+                    }
+
+                    if ($total == 0) return "#ccc";
+
+                    $r = round($rTotal / $total);
+                    $g = round($gTotal / $total);
+                    $b = round($bTotal / $total);
+
+                    return sprintf("#%02x%02x%02x", $r, $g, $b);
+                }
+
                 while ($satir = $result -> fetch(PDO::FETCH_ASSOC)) {
+                    $imagePath = "images/books/" . $satir["fotograf"];
+                    $mixColor = getMixColor($imagePath);
+                
                     echo "
-                        <div class='kitapDiv'>
-                            <div>".$satir["kitapadi"]."</div>
-                            <img src='images/books/".$satir["fotograf"]."' class='kitapImg'>
-                            <div>".$satir["yayinadi"]."</div>
-                            <button>Sepete Ekle</button>
+                        <div class='kitapDiv1'>
+                            <div class='kitapDiv2'>
+                                <div class='kitapText'>".$satir["kitapadi"]."</div>
+                                <img src='".$imagePath."' class='kitapImg'>
+                                <div class='yayinText'>".$satir["yayinadi"]."</div>
+                                <div class='fiyatSepet'>".$satir["fiyat"]."₺<button>Sepete Ekle</button></div>
+                            </div>
+                            <div style='background-color: ".$mixColor."; height: 40px; width: 24px;'></div>
                         </div>
                     ";
-                }
+                }                
             ?>
         </div>
     </main>
-
-    <?php include 'navbar.php'; ?>
-    <script src="script.js"></script>
 </body>
 </html>

@@ -40,7 +40,7 @@
 
         <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
             <h1>Kitapca</h1>
-            <table border="1">
+            <table border="1" style="margin:0px 16rem; background-color: white;">
                 <tr>
                     <th>ID</th> <th>Kitap Adı</th> <th>Yayın Adı</th> <th>Kategori</th> <th>Fiyat</th> <th>Fotograf</th>
                 </tr>   
@@ -54,6 +54,10 @@
                             <td>".$satir["kategori"]."</td>
                             <td>".$satir["fiyat"]."</td>
                             <td>".$satir["fotograf"]."</td>
+                            <td><form method='post'>
+                                <input type='hidden' name='sil' value='".$satir["id"]."'>
+                                <input type='submit' value='Sil'></form>
+                            </td>
                             </tr>
                         ";
                     }
@@ -62,8 +66,6 @@
         </div>
     </div>
     </main>
-
-    <script src="script.js"></script>
 </body>
 </html>
 
@@ -85,4 +87,14 @@
 
         if($saved) echo "<script>window.location.href = window.location.href</script>";
     }
+
+    if(isset($_POST["sil"])){
+        $sil_id = $_POST["sil"];
+        $delete = $db -> prepare("DELETE FROM kitaplar WHERE id = :id");
+        $delete -> bindParam(":id", $sil_id, PDO::PARAM_INT);
+        
+        $deleted = $delete -> execute();
+        if($deleted) echo "<script>window.location.href = window.location.href</script>";
+    }
+    
 ?>

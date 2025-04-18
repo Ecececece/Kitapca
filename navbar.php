@@ -1,4 +1,4 @@
-<div style="position: fixed; top: 0; left: 0; z-index: 1000; background-color: #f2e5d0; width: 100%;">
+<div style="width: 100%; position: fixed; top: 0; left: 0; z-index: 1000; background-color: #f2e5d0; box-shadow: 0px 3px 40px 10px rgba(78,50,32,0.60);">
     <header>
         <a href="index.php"><img src="images/logo.png" alt="Logo" height="100"></a>
         <div class="searchDiv">
