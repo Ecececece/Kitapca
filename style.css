@@ -106,7 +106,7 @@ input, select{
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
-    padding: 2rem 6rem;
+    padding: 2rem 0;
 }
 
 .kitapDiv1{
@@ -132,9 +132,9 @@ input, select{
 
 }
 
-@media (min-width: 768px) {.kitapDiv1 {width: calc((100% - 2rem) / 2);}}
-@media (min-width: 1024px) {.kitapDiv1 {width: calc((100% - 2rem * 2) / 3);}}
-@media (min-width: 1366px) {.kitapDiv1 {width: calc((100% - 2rem * 3) / 4);}}
+@media (min-width: 769px) {.kitapDiv1 {width: calc((100% - 2rem) / 2);}}
+@media (min-width: 1025px) {.kitapDiv1 {width: calc((100% - 2rem * 2) / 3);}}
+@media (min-width: 1370px) {.kitapDiv1 {width: calc((100% - 2rem * 3) / 4);}}
 
 .kitapImg{
     height: auto;
@@ -157,5 +157,6 @@ input, select{
 }
 
 main{
-    padding-top: 164px;
+    padding: 0 5rem;
+    padding-top: 212px;
 }

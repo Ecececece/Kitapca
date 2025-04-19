@@ -1,0 +1,67 @@
+<?php
+// MySQL Bağlantı Parametreleri
+$host = 'localhost';
+$user = 'root';
+$password = '';  // Varsayılan XAMPP şifresi boş
+$dbname = 'kitapca';  // Kendi veritabanınızın adını yazın
+$port = 3307;
+
+// Bağlantı oluşturma
+$conn = new mysqli($host, $user, $password, $dbname, $port);
+
+// Bağlantıyı kontrol etme
+if ($conn->connect_error) {
+    die("Bağlantı başarısız: " . $conn->connect_error);
+}
+
+// Yayın Adı Seçimi
+$yayın_adi = ["Yapı Kredi Yayınları", "Can Yayınları", "Türkiye İş Bankası Kültür Yayınları", "Doğan Kitap", "Kırmızı Kedi Yayınevi"];
+
+// Fotoğraf Seçimi (downloaded_images klasöründeki tüm fotoğraflar)
+$foto_klasor = 'downloaded_images/cocuk/';
+$foto_dosyalari = scandir($foto_klasor);  // Klasördeki dosyaları al
+$foto_dosyalari = array_diff($foto_dosyalari, array('.', '..'));  // . ve .. dosyalarını kaldır
+
+// Sayaç
+$counter = 0;
+
+// Her bir fotoğraf için döngü
+foreach ($foto_dosyalari as $foto_isim) {
+    // Fotoğraf ismini kitap adı olarak düzenleme
+    $kitapadi_raw = pathinfo($foto_isim, PATHINFO_FILENAME);  // Fotoğraf ismini al (uzantı hariç)
+    $kitapadi = str_replace('-', ' ', $kitapadi_raw);  // "-" yerine boşluk
+    $kitapadi = ucwords($kitapadi);  // İlk harfleri büyük yapma
+
+    // Eğer kitap adında sayı varsa, " Cilt" ekle
+    if (preg_match('/\d+/', $kitapadi_raw)) {
+        $kitapadi .= ". Cilt";  // Eğer sayı varsa, "Cilt" ekle
+    }
+
+    // Yayın Adı Seçimi
+    $yayın = $yayın_adi[array_rand($yayın_adi)];
+
+    // Fiyat Seçimi (120 ile 300 arasında ve sonu 0 olacak)
+    $fiyat = rand(10, 40) * 10;  // 120-300 arasında bir değer üretir
+
+    // Kategori
+    $kategori = "cocuk";
+
+    // SQL sorgusu ile veriyi ekleme
+    $sql = "INSERT INTO kitaplar (kitapadi, yayinadi, kategori, fiyat, fotograf) 
+            VALUES ('$kitapadi', '$yayın', '$kategori', $fiyat, '$foto_isim')";
+
+    if ($conn->query($sql) === TRUE) {
+        echo "Yeni kitap başarıyla eklendi: $kitapadi<br>";
+    } else {
+        echo "Hata: " . $sql . "<br>" . $conn->error;
+    }
+
+    // 10 kitap eklendikten sonra 1 saniye beklet
+    $counter++;
+    if ($counter % 10 == 0) {
+        sleep(1);  // 1 saniye bekle
+    }
+}
+
+$conn->close();
+?>
