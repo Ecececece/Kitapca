@@ -18,7 +18,7 @@
     <nav>
         <a href="tum.php" class="navButton" style="border-left: 2px solid #4e3220; color: #4e3220;">Tüm Kitaplar</a>
         <a href="roman.php" class="navButton" style="color: #4e3220;">Roman</a>
-        <a href="hikaye.php" class="navButton" style="color: #4e3220;">Hikaye</a>
+        <a href="oyku.php" class="navButton" style="color: #4e3220;">Öykü</a>
         <a href="siir.php" class="navButton" style="color: #4e3220;">Siir</a>
         <a href="cizgiroman.php" class="navButton" style="color: #4e3220;">Çizgi Roman</a>
         <a href="cocuk.php" class="navButton" style="color: #4e3220;">Çocuk Kitapları</a>

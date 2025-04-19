@@ -8,10 +8,10 @@ from urllib.parse import urljoin
 import re
 
 # Hedef URL
-url = 'https://www.kitapsepeti.com/siir'
+url = 'https://www.kitapsepeti.com/oyku'
 
 # Resimler için bir klasör oluştur
-folder_name = 'downloaded_images/siir'
+folder_name = 'downloaded_images/oyku'
 if not os.path.exists(folder_name):
     os.makedirs(folder_name)
 

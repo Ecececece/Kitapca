@@ -89,6 +89,17 @@ header{
     flex-direction: column;
 }
 
+.saveDiv {
+    position: fixed;
+    top: calc((100vh / 2) - 100px);
+    left: 0;
+    width: 600px;
+    z-index: 999;
+    padding: 20px;
+    height: 600px;
+    overflow-y: auto;
+}
+
 .kitaplarOptions{
     width: 24rem;
     display: flex;
@@ -159,4 +170,14 @@ input, select{
 main{
     padding: 0 5rem;
     padding-top: 212px;
+}
+
+table{
+    margin:0px 1rem; 
+    background-color: white;
+}
+
+th, td{
+    height: 3rem;
+    text-align: center;
 }

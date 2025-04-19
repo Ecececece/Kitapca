@@ -55,12 +55,6 @@ foreach ($foto_dosyalari as $foto_isim) {
     } else {
         echo "Hata: " . $sql . "<br>" . $conn->error;
     }
-
-    // 10 kitap eklendikten sonra 1 saniye beklet
-    $counter++;
-    if ($counter % 10 == 0) {
-        sleep(1);  // 1 saniye bekle
-    }
 }
 
 $conn->close();

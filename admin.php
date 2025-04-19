@@ -14,18 +14,18 @@
     <title>Kitapça</title>
 </head>
 <body>
-    <?php include 'navbar.php'; ?>
+    <?php include 'oto/navbar.php'; ?>
         
     <main>
-    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
-        <form action="" method="post">
+    <div style="display: flex; flex-direction: row; justify-content: center; align-items: center;">
+        <form action="" method="post" class="saveDiv">
             <div class="form">
                 <div class="kitaplarOptions">Kitap Adı : <input type="text" name="kitapadi"></div>
                 <div class="kitaplarOptions">Yayıncı : <input type="text" name="yayinadi"></div>
                 <div class="kitaplarOptions">Kategori : 
                     <select id="kategori" name="kategori">
                         <option value="roman">Roman</option>
-                        <option value="hikaye">Hikaye</option>
+                        <option value="oyku">Öyku</option>
                         <option value="siir">Siir</option>
                         <option value="cizgiroman">Çizgi Roman</option>
                         <option value="cocuk">Çocuk Kitapları</option>
@@ -35,17 +35,32 @@
                 <div class="kitaplarOptions">Fotoğraf : <input type="file" name="fotograf"></div>
             </div>
 
-            <input type="submit" value="Kaydet" name="kaydet" style="width: 24rem;">
+            <input type="submit" value="Kaydet" name="kaydet" style="width: 12rem;">
+            <input type="submit" value="Sıfırla" name="sifirla" style="width: 12rem;">
         </form>
 
-        <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+        <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; margin-left: 400px">
             <h1>Kitapca</h1>
-            <table border="1" style="margin:0px 16rem; background-color: white;">
+            <div class="searchDiv" class="" style="background-color: white; margin-bottom: 1rem">
+                <input type="image" src="images/search.png" alt="Search" style='height: 50px; width: 50px;'>
+                <input type="text" name="search" id="search" placeholder="Aradıgınız ürünün adını yazınız..." class="search" style="background-color: white;">
+            </div>
+            <table border="1">
                 <tr>
-                    <th>ID</th> <th>Kitap Adı</th> <th>Yayın Adı</th> <th>Kategori</th> <th>Fiyat</th> <th>Fotograf</th>
+                    <th style='width: 4rem;'>ID</th>
+                    <th style='width: 16rem;'>Kitap Adı</th>
+                    <th style='width: 16rem;'>Yayın Adı</th>
+                    <th style='width: 10rem;'>Kategori</th>
+                    <th style='width: 4rem;'>Fiyat</th>
+                    <th style='width: 16rem;'>Fotograf</th>
+                    <th>Sil</th>
+                    <th>Düzenle</th>
                 </tr>   
                 <?php
+                    $satirKontrol = false;
+
                     while ($satir = $result -> fetch(PDO::FETCH_ASSOC)) {
+                        $satirKontrol = true;
                         echo "
                             <tr>
                             <td>".$satir["id"]."</td>
@@ -54,13 +69,22 @@
                             <td>".$satir["kategori"]."</td>
                             <td>".$satir["fiyat"]."</td>
                             <td>".$satir["fotograf"]."</td>
-                            <td><form method='post'>
-                                <input type='hidden' name='sil' value='".$satir["id"]."'>
-                                <input type='submit' value='Sil'></form>
+                            <td>
+                                <form method='post'>
+                                    <input type='hidden' name='sil' value='".$satir["id"]."'>
+                                    <input type='image' src='images/delete.png' style='height: 50px; width: 50px;'>
+                                </form>
+                            </td>
+                            <td>
+                                <a href='edit.php?id=".$satir["id"]."'>
+                                    <img src='images/edit.png' alt='Düzenle' style='height: 50px; width: 50px;'>
+                                </a>
                             </td>
                             </tr>
                         ";
                     }
+
+                    if(!$satirKontrol) echo "<tr><td colspan='8' style='text-align: center;'>Tabloda veri bulunamadı.</td></tr>";
                 ?>
             </table>
         </div>
@@ -70,6 +94,8 @@
 </html>
 
 <?php
+    if(isset($_POST["search"])) echo "<script>console.log('tiklandi')</script>";
+
     if(isset($_POST["kaydet"])){
         $kitapadi = trim($_POST["kitapadi"]);
         $yayinadi = trim($_POST["yayinadi"]);
@@ -88,6 +114,12 @@
         if($saved) echo "<script>window.location.href = window.location.href</script>";
     }
 
+    if(isset($_POST["sifirla"])){
+        $reset = $db -> prepare("TRUNCATE TABLE kitaplar;");
+        $reseted = $reset -> execute();
+        if($reset) echo "<script>window.location.href = window.location.href</script>";
+    }
+
     if(isset($_POST["sil"])){
         $sil_id = $_POST["sil"];
         $delete = $db -> prepare("DELETE FROM kitaplar WHERE id = :id");
@@ -96,5 +128,4 @@
         $deleted = $delete -> execute();
         if($deleted) echo "<script>window.location.href = window.location.href</script>";
     }
-    
 ?>

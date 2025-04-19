@@ -14,7 +14,6 @@
     <title>Kitapça</title>
 </head>
 <body>
-    <?php include 'navbar.php'; ?>
-    <script src="script.js"></script>
+    <?php include 'oto/navbar.php'; ?>
 </body>
 </html>

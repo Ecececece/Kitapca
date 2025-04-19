@@ -1,29 +1,4 @@
-<?php
-    include "connection.php";
-
-    $siralama = $_GET['siralama'] ?? 'az';
-
-    if ($siralama == 'za') $kitaplar = "SELECT * FROM kitaplar WHERE kategori = 'hikaye' ORDER BY kitapadi DESC";
-    else if ($siralama == 'azFiyat') $kitaplar = "SELECT * FROM kitaplar WHERE kategori = 'hikaye' ORDER BY fiyat ASC";
-    else if ($siralama == 'cokFiyat') $kitaplar = "SELECT * FROM kitaplar WHERE kategori = 'hikaye' ORDER BY fiyat DESC";
-    else $kitaplar = "SELECT * FROM kitaplar WHERE kategori = 'hikaye' ORDER BY kitapadi ASC";
-
-    $result = $db -> query($kitaplar);
-?>
-
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kitapça</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <?php include 'navbar.php'; ?>
-
-    <main>
+<main>
         <div style="display: flex; justify-content: center; align-items: center; font-size: 16pt; margin: 20px;">
             <form method="get">
                 <select name="siralama" onchange="this.form.submit()" class="siralama">
@@ -86,5 +61,3 @@
             ?>
         </div>
     </main>
-</body>
-</html>

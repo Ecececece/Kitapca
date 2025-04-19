@@ -2,7 +2,7 @@ import os
 import re
 
 # Klasör yolu
-folder_path = "downloaded_images/siir"
+folder_path = "downloaded_images/oyku"
 
 for filename in os.listdir(folder_path):
     file_path = os.path.join(folder_path, filename)
