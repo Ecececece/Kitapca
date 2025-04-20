@@ -25,6 +25,33 @@ nav{
     padding: 0 7rem;
 }
 
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 10rem;
+}
+
+input, select{
+    height: 2.5rem;
+    width: 16rem;
+}
+
+main{
+    padding: 0 5rem;
+    padding-top: 212px;
+}
+
+table{
+    margin:0px 1rem; 
+    background-color: white;
+}
+
+th, td{
+    height: 3rem;
+    text-align: center;
+}
+
 .navButton{
     height: 2.5rem;
     width: 100%;
@@ -34,13 +61,6 @@ nav{
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem 10rem;
 }
 
 .searchDiv{
@@ -63,8 +83,7 @@ header{
 
     border: 0;
     outline: 0;
-    border-top-right-radius: 50px;
-    border-bottom-right-radius: 50px;
+    border-radius: 50px;
 }
 
 .headerButton{
@@ -108,11 +127,6 @@ header{
     margin-top: 1rem;
 }
 
-input, select{
-    height: 2.5rem;
-    width: 16rem;
-}
-
 .kitaplarDiv {
     display: flex;
     flex-wrap: wrap;
@@ -151,6 +165,9 @@ input, select{
     height: auto;
     width: 11rem;
     aspect-ratio: 2 / 3;
+
+    border: 2px solid #4e3220;
+    border-radius: 20px; 
 }
 
 .kitapText{
@@ -167,17 +184,16 @@ input, select{
     font-size: 20pt;
 }
 
-main{
-    padding: 0 5rem;
-    padding-top: 212px;
-}
+.loginDiv{
+    height: 30rem;
+    width: 30rem;
 
-table{
-    margin:0px 1rem; 
-    background-color: white;
-}
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-th, td{
-    height: 3rem;
-    text-align: center;
+    background-color: #e6cba2;
+    border: 2px #4e3220 solid;
+    border-radius: 20px;
 }

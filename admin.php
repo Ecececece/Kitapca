@@ -41,10 +41,6 @@
 
         <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; margin-left: 400px">
             <h1>Kitapca</h1>
-            <div class="searchDiv" class="" style="background-color: white; margin-bottom: 1rem">
-                <input type="image" src="images/search.png" alt="Search" style='height: 50px; width: 50px;'>
-                <input type="text" name="search" id="search" placeholder="Aradıgınız ürünün adını yazınız..." class="search" style="background-color: white;">
-            </div>
             <table border="1">
                 <tr>
                     <th style='width: 4rem;'>ID</th>
@@ -94,8 +90,6 @@
 </html>
 
 <?php
-    if(isset($_POST["search"])) echo "<script>console.log('tiklandi')</script>";
-
     if(isset($_POST["kaydet"])){
         $kitapadi = trim($_POST["kitapadi"]);
         $yayinadi = trim($_POST["yayinadi"]);

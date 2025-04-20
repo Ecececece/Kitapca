@@ -1,8 +1,8 @@
 <?php
-$id = $_GET['id'];
-  include "connection.php";
-  $kitaplar = "SELECT * FROM kitaplar WHERE id=".$id."";
-  $result = $db -> query($kitaplar);
+    $id = $_GET['id'];
+    include "connection.php";
+    $kitaplar = "SELECT * FROM kitaplar WHERE id=".$id."";
+    $result = $db -> query($kitaplar);
 ?>
 
 <!DOCTYPE html>
