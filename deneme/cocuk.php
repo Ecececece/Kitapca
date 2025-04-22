@@ -1,3 +1,4 @@
+@ -1,61 +1,48 @@
 <?php
 // MySQL Bağlantı Parametreleri
 $host = 'localhost';
