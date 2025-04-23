@@ -3,7 +3,7 @@
 $host = 'localhost';
 $user = 'root';
 $password = '';  // Varsayılan XAMPP şifresi boş
-$dbname = 'ciyaklezzet';  // Kendi veritabanınızın adını yazın
+$dbname = 'ciyaktavuk';  // Kendi veritabanınızın adını yazın
 $port = 3307;
 
 // Bağlantı oluşturma
@@ -30,10 +30,6 @@ foreach ($foto_dosyalari as $foto_isim) {
     $urunadi = strtolower($urunadi);  // Bütün harfleri küçük yapma
     $urunadi = ucwords($urunadi);  // İlk harfleri büyük yapma
 
-    // Eğer kitap adında sayı varsa, " Cilt" ekle
-    if (preg_match('/\d+/', $urunadi_raw)) {
-        $urunadi .= ". Cilt";  // Eğer sayı varsa, "Cilt" ekle
-    }
     // Fiyat Seçimi (120 ile 300 arasında ve sonu 0 olacak)
     $fiyat = rand(15, 30) * 10;  // 120-300 arasında bir değer üretir
 

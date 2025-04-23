@@ -44,16 +44,22 @@ body{
     text-decoration: none;
 }
 
-.menu-input-div{
+.save-input-div{
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.menu-input{
+.save-input{
     height: 40px;
     width: 200px;
     margin-bottom: 10px;
+}
+
+.save-div{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
 }
 
 table{
@@ -72,58 +78,59 @@ td{
     flex-direction: column;
 }
 
-.kitaplarOptions{
-    width: 24rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 1rem;
-}
-
-.kitaplarDiv {
+.urunler{
     display: flex;
     flex-wrap: wrap;
-    gap: 2rem;
-    padding: 2rem 0;
+    justify-content: center;
+    gap: 40px;
+    padding-right: 100px;
+    padding-left: 100px;
+    padding-bottom: 40px;
 }
 
-.kitapDiv1{
-    height: calc(28rem + 40px);
-    width: 100%;
+.menu-urun{
+    height: 600px;
+    width: 450px;
+    background-color: #d23606;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.kitapDiv2 {
-    height: 28rem;
-    width: 100%;
+
+.menu-img{
+    height: 320px;
+    width: 320px;
+    position: absolute;
+    top: -140px;
+}
+
+.menu-tasarim{
+    height: 370px;
+    width: 300px;
+    background-color:white;
+    border-top-right-radius: 50px;
+    border-top-left-radius: 50px;
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 40px;
+    padding: 20px;
+    padding-top: 50px;
+    text-align: center;
+}
 
-    background-color: #e6cba2;
-    border-left: 1.5rem #4e3220 solid;
-    border-radius: 10px 10px 10px 0;
-    box-shadow: inset 200px 0px 28px -175px rgba(78, 50, 32, 0.40),
-            0px 0px 20px 5px rgba(78, 50, 32, 0.40);
+.urun-isim{
+    font-size: xx-large;
+}
 
+.urun-fiyat{
+    font-size: xx-large;
+    margin-top: 40px;
 }
 
 @media (min-width: 769px) {.kitapDiv1 {width: calc((100% - 2rem) / 2);}}
 @media (min-width: 1025px) {.kitapDiv1 {width: calc((100% - 2rem * 2) / 3);}}
 @media (min-width: 1370px) {.kitapDiv1 {width: calc((100% - 2rem * 3) / 4);}}
-
-.kitapImg{
-    height: auto;
-    width: 11rem;
-    aspect-ratio: 2 / 3;
-
-    border: 2px solid #4e3220;
-    border-radius: 20px; 
-}
-
-.kitapText{
-    font-size: 20pt;
-    margin-bottom: 8px;
-}
