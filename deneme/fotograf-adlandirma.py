@@ -2,7 +2,7 @@ import os
 import re
 
 # Klasör yolu
-folder_path = "downloaded_images/oyku"
+folder_path = "downloaded_images/tavuk"
 
 for filename in os.listdir(folder_path):
     file_path = os.path.join(folder_path, filename)
@@ -20,6 +20,7 @@ for filename in os.listdir(folder_path):
     # 2. "-gorseli" ve "-gorsel" varsa onları sil
     cleaned_name = re.sub(r'-gorseli', '', cleaned_name, flags=re.IGNORECASE)
     cleaned_name = re.sub(r'-gorsel', '', cleaned_name, flags=re.IGNORECASE)
+    cleaned_name = re.sub(r'_x_dpi', '', cleaned_name, flags=re.IGNORECASE)
 
     # 3. Sondaki --abc, __xyz gibi kısımları sil
     cleaned_name = re.sub(r'[-_]{2,}[^-_]*$', '', cleaned_name)

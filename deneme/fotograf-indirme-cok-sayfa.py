@@ -9,10 +9,10 @@ import re
 
 # Sayfa aralığı
 start_page = 1
-end_page = 10
+end_page = 3
 
 # Resimler için bir klasör oluştur
-folder_name = 'downloaded_images'
+folder_name = 'downloaded_images/tavuk'
 if not os.path.exists(folder_name):
     os.makedirs(folder_name)
 
@@ -35,7 +35,7 @@ driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), opti
 # Sayfaları sırayla indir
 for page_num in range(start_page, end_page + 1):
     # Sayfa URL'sini oluştur
-    page_url = f'https://www.gerekliseyler.com.tr/kategori/turkce?tp={page_num}'
+    page_url = f'https://cajuncorner.com.tr/urunler/page/{page_num}/'
     
     # Sayfayı aç
     driver.get(page_url)
