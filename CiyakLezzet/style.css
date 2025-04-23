@@ -1,0 +1,129 @@
+@font-face {
+    font-family: 'ciyaktavuk';
+    src: url('ciyaktavuk.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body{
+    font-family: 'ciyaktavuk', sans-serif;
+    background-color: #fde8c3;
+    color: #4e3220;
+    overflow-x: hidden;
+    margin: 0;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #4e3220;
+    padding-left: 100px;
+    padding-right: 100px;
+    margin-bottom: 20px;
+}
+
+.logo{
+    height: 200px;
+    width: 200px;
+    border-radius: 100%;
+}
+
+.navbar-button{
+    height: 60px;
+    width: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f44f05;
+    border: 3px solid #221408;
+    box-shadow: inset 0px -10px 2px 0px #d23606;
+    color: white;
+    font-size: x-large;
+    border-radius: 100px;
+    text-decoration: none;
+}
+
+.menu-input-div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu-input{
+    height: 40px;
+    width: 200px;
+    margin-bottom: 10px;
+}
+
+table{
+    background-color: white;
+}
+
+th{
+    text-align: center;
+}
+td{
+    text-align: center;
+}
+
+.form-div {
+    display: flex;
+    flex-direction: column;
+}
+
+.kitaplarOptions{
+    width: 24rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.kitaplarDiv {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+.kitapDiv1{
+    height: calc(28rem + 40px);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.kitapDiv2 {
+    height: 28rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #e6cba2;
+    border-left: 1.5rem #4e3220 solid;
+    border-radius: 10px 10px 10px 0;
+    box-shadow: inset 200px 0px 28px -175px rgba(78, 50, 32, 0.40),
+            0px 0px 20px 5px rgba(78, 50, 32, 0.40);
+
+}
+
+@media (min-width: 769px) {.kitapDiv1 {width: calc((100% - 2rem) / 2);}}
+@media (min-width: 1025px) {.kitapDiv1 {width: calc((100% - 2rem * 2) / 3);}}
+@media (min-width: 1370px) {.kitapDiv1 {width: calc((100% - 2rem * 3) / 4);}}
+
+.kitapImg{
+    height: auto;
+    width: 11rem;
+    aspect-ratio: 2 / 3;
+
+    border: 2px solid #4e3220;
+    border-radius: 20px; 
+}
+
+.kitapText{
+    font-size: 20pt;
+    margin-bottom: 8px;
+}
