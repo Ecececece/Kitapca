@@ -18,7 +18,6 @@
         <a href="index.php"><img src="./images/logo.png" class="logo" alt="logo"></a>
         <div style="display:flex;">
             <a href="urunler.php" class="navbar-button" style="margin-right:30px;">Urunler</a>
-            <a href="subeler.php" class="navbar-button">Subeler</a>
         </div>
     </div>
 
@@ -29,10 +28,11 @@
         
         echo "
             <div class='menu-urun'>
+                <div class='menu-urun-delik'></div>
                 <div class='menu-tasarim'>
                     <img src='".$imagePath."' class='menu-img'>
                     <div class='urun-isim'>".$satir["urunadi"]."</div>
-                    <div class='urun-fiyat'>".$satir["fiyat"]."₺<button>Sepete Ekle</button></div>
+                    <div class='urun-fiyat'>".$satir["fiyat"]."₺<button class='sepet-button'>Sepete Ekle</button></div>
                 </div>
             </div>
         ";

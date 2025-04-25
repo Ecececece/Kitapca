@@ -17,7 +17,6 @@ $sql = $db->query($menu);
         <a href="index.php"><img src="./images/logo.png" class="logo" alt="logo"></a>
         <div style="display:flex;">
             <a href="urunler.php" class="navbar-button" style="margin-right:30px;">Urunler</a>
-            <a href="subeler.php" class="navbar-button">Subeler</a>
         </div>
     </div>
     

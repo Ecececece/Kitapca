@@ -93,10 +93,21 @@ td{
     width: 450px;
     background-color: #d23606;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-radius: 20px;
+    box-shadow: -5px 5px 10px 0px rgba(34,20,8,0.75);
 }
 
+.menu-urun-delik{
+    height:30px;
+    width:30px;
+    border-radius:100%;
+    margin-bottom:30px;
+    background-color: #fde8c3;
+    box-shadow: inset 5px -5px 10px 0px rgba(34,20,8,0.75);
+}
 
 .menu-img{
     height: 320px;
@@ -106,7 +117,7 @@ td{
 }
 
 .menu-tasarim{
-    height: 370px;
+    height: 270px;
     width: 300px;
     background-color:white;
     border-top-right-radius: 50px;
@@ -114,11 +125,11 @@ td{
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     margin-top: 40px;
     padding: 20px;
-    padding-top: 50px;
+    padding-top: 150px;
     text-align: center;
 }
 
@@ -127,8 +138,25 @@ td{
 }
 
 .urun-fiyat{
+    display: flex;
+    flex-direction: column;
     font-size: xx-large;
     margin-top: 40px;
+}
+
+.sepet-button{
+    height: 70px;
+    width: 200px;
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+    background-color: #f44f05;
+    border: 3px solid #221408;
+    box-shadow: inset 0px -10px 2px 0px #d23606;
+    font-family: 'ciyaktavuk', sans-serif;
+    color: white;
+    font-size: x-large;
+    border-radius: 100px;
 }
 
 @media (min-width: 769px) {.kitapDiv1 {width: calc((100% - 2rem) / 2);}}
