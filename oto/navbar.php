@@ -1,7 +1,3 @@
-<?php
-session_start();
-?>
-
 <div style="width: 100%; position: fixed; top: 0; left: 0; z-index: 1000; background-color: #f2e5d0; box-shadow: 0px 3px 40px 10px rgba(78,50,32,0.60);">
     <header>
         <a href="index.php"><img src="images/logo.png" alt="Logo" height="100"></a>
@@ -11,22 +7,10 @@ session_start();
             <input type="image" src="images/search.png" name="searchButton" style="height: 50px; width: 50px;">
         </form>
 
-        <?php if (isset($_SESSION["adminLogin"])): ?>
-            <a href="oto/logout.php" class="headerButton" style="color: #4e3220;">
-                <img src="images/user.png" alt="user" height="40">
-                Çıkıs Yap
-            </a>
-            <a href="admin.php" class="headerButton" style="color: #4e3220;">
-                <img src="images/admin.png" alt="admin" height="40">
-                Admin
-            </a>
-        <?php else: ?>
-            <!-- Giriş yapılmadıysa, giriş yap butonunu göster -->
-            <a href="../kitapca/login.php" class="headerButton" style="color: #4e3220;">
-                <img src="images/user.png" alt="user" height="40">
-                Giris Yap
-            </a>
-        <?php endif; ?>
+        <a href="admin.php" class="headerButton" style="color: #4e3220;">
+            <img src="images/admin.png" alt="admin" height="40">
+            Admin
+        </a>
 
         <a href="sepet.php" class="headerButton" style="color: #4e3220;">
             <img src="images/sepet.png" alt="sepet" height="40">
